@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', system-ui, sans-serif;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.gradient-border {
+  position: relative;
+  background-clip: padding-box;
+}
+
+/* Page Change Animation */
+@keyframes pageFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+/* Card Entrance Stagger */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-in {
+  animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Universal Button Micro-interactions */
+button:not(:disabled) {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:not(:disabled):active {
+  transform: scale(0.96);
+}
+
+/* Floating & Breathing Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-btn {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
