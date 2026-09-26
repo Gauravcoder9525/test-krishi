@@ -1,0 +1,9 @@
+{
+  "disease": "Pearl Millet Downy Mildew / Rust",
+  "status": "diseased",
+  "confidence": "86.0",
+  "severity": "Moderate to Severe (Stage 2-3)",
+  "risk": "High",
+  "imageUri": "/last_disease_scan.jpg?t=1789250026",
+  "timestamp": 1789250026106
+}
